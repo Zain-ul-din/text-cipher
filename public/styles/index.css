@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background-rgb: rgb(29, 30, 34);
+  
+  --green-rgb: 20 148 20;
+  --blue-rgb: 33 150 243;
+  --primary-rgb: var(--green-rgb);
+  
+  --blob-color-1: rgb(var(--blue-rgb));
+  --blob-color-2: dodgerblue;
+  --hacker-green: #23A825;
+}
+
+.hacker-green-bg {
+  background-color: var(--hacker-green);
+}
+
+.bg {
+    background-color: var(--background-rgb);
+}
+
+.screen {
+  display: flex;
+  border: 3px solid rgb(var(--primary-rgb) / 80%);
+  aspect-ratio: 10 / 16;
+  border-radius: 0.2rem;
+  background-color: rgb(var(--primary-rgb) / 15%);
+  overflow: hidden;
+  position: relative;
+  z-index: 10;
+  filter: brightness(120%); 
+}
+
+.bg-primary-green {
+  background-color: rgb(var(--primary-rgb) / 300%);
+}
+
+.screen-overlay {
+    background: linear-gradient(
+    rgb(var(--primary-rgb) / 0.25),
+    rgb(var(--primary-rgb) / 0.25) 3px,
+    transparent 3px,
+    transparent 9px
+  );
+  background-size: 100% 9px;
+  height: 100%;
+  width: 100%;
+  animation: pan-overlay 22s infinite linear;
+  position: absolute;
+  z-index: 2;
+  left: 0px;
+  top: 0px;
+  filter: blur(2px);
+}
+
+@keyframes pan-overlay {
+  from {
+    background-position: 0% 0%;
+  }
+  
+  to {
+    background-position: 0% -100%;
+  }
+}
+
+.screen-image {
+    background-image: url("../../images/lock-bg.jpg");
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    left: 0px;
+    top: 0px;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: sepia(100%) hue-rotate(160deg);
+    opacity: 0.2;
+    background-size: 100%;
+    
+}
+
+@media (min-width: 900px) {
+  .screen-image {
+    background-position: 0% 0%;
+    animation: pan-image 10s linear infinite;
+  }
+}
+
+/* */
+@keyframes pan-image {  
+    0% {
+      background-position: 36% 42%;
+      background-size: 120%;
+    }
+    
+    20% {
+      background-position: 30% 35%;
+      background-size: 120%;
+    }
+    
+    20.0001% { /* -- View 2 -- */
+      background-position: 60% 85%;
+      background-size: 120%;
+    }
+    
+    40% {
+      background-position: 49% 81%;
+      background-size: 110%;
+    }
+    
+    40.0001% { /* -- View 3 -- */
+      background-position: 80% 42%;
+      background-size: 110%;
+    }
+    
+    60% {
+      background-position: 84% 33%;
+      background-size: 110%;
+    }
+    
+    60.0001% { /* -- View 4 -- */
+      background-position: 0% 0%;
+      background-size: 120%;
+    }
+    
+    80% {
+      background-position: 15% 4%;
+      background-size: 120%;
+    }
+    
+    80.0001% { /* -- View 5 -- */
+      background-position: 80% 10%;
+      background-size: 120%;
+    }
+    
+    100% {
+      background-position: 72% 14%;
+      background-size: 120%;
+    }
+}
