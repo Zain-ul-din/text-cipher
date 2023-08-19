@@ -1,112 +1,166 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="h-full w-full dark">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Text Cipher</title>
-    <link rel="stylesheet" href="./styles/dist/output.css"/>
-    <script src="./scripts/hacker_effect.js" ></script>
-</head>
-<body class="w-full h-full bg flex flex-col justify-center items-center">
+    <link rel="icon" type="image/x-icon" href="./images/fav-icon.png">
+    <link rel="stylesheet" href="./styles/dist/output.css" />
+    <script src="./scripts/hacker_effect.js"></script>
+  </head>
+  <body class="w-full h-full bg flex flex-col justify-center items-center">
     <div class="w-full h-full screen">
-        <div class="screen-image"></div>  
-        <div class="screen-overlay"></div>
-        
-        <!-- main content  -->
-        <div class="w-full h-full flex flex-col items-center justify-center z-50 brightness-200 gap-2">
-            <img 
-                src="./images/lock-icon-100.png"
-                alt="lock-logo"
-                width="100"
-                height="100"
-                class="brightness-200"
-            />
-            <h1 id="title" class="text-5xl brightness-200 text-[color:var(--hacker-green)]  font-mono">
-                TEXT CIPHER
-            </h1>
-            
-            <form class="flex flex-col items-center justify-center w-96 px-5 gap-4 my-4">
-                <!-- text input -->
-                <div class="w-full flex flex-col gap-1">
-                    <label class="text-white font-mono text-sm">INPUT THE TEXT FOR ENCRYPTION</label>
-                    <textarea 
-                        name="description"
-                        placeholder="ENTER ANY TEXT" 
-                        class="font-mono rounded-md brightness-200 focus:brightness-100 bg-transparent ring-1 ring-[color:var(--hacker-green)] w-full h-20 p-1 focus:outline-none text-white focus:text-white"
-                    ></textarea>
-                </div>
-                <!-- password input -->
-                <div class="w-full flex flex-col gap-1 relative">
-                    <label class="text-white font-mono text-sm">PROVIDE THE SECRET KEY (NOTE: ENCRYPTED TEXT REMAINS UNREADABLE WITHOUT THIS KEY)</label>
-                    <div class="relative flex items-top">
-                        <div class="absolute top-0 right-0 h-full flex items-center pr-2" onclick="toggleShowPassword()">
-                            <img 
-                                src="./images/lock-icon.png" 
-                                alt="Icon" 
-                                class="h-5 w-5 brightness-200 cursor-pointer z-10 hidden lock-icon"
-                            />
-                            <img 
-                                src="./images/eye-icon.png" 
-                                alt="Icon" 
-                                class="h-5 w-5 brightness-200 cursor-pointer z-10 eye-icon"
-                            />
-                        </div>
-                        <input  
-                            name="password" 
-                            placeholder="SECRET KEY" 
-                            type="password"
-                            id="password_input"
-                            class="font-mono brightness-200 focus:brightness-100 rounded-md bg-transparent w-full h-10 p-1 pr-8 ring-1 ring-[color:var(--hacker-green)] focus:outline-none text-white focus:text-white"
-                        />
-                    </div>
-                </div>
-                <div type="submit" class="font-mono brightness-200 hacker-green-bg rounded-md font-semibold w-full h-10 flex justify-center items-center cursor-pointer hover:opacity-80 hover:brightness-100">
-                    ENCRYPT
-                </div>
-            </form> 
+      <div class="screen-image"></div>
+      <div class="screen-overlay"></div>
 
-            <footer class="fixed bottom-0 left-0 right-0 bg-transparent p-2 flex w-100">
-                <a class="ml-auto cursor-pointer" aria-readonly="github-icon">
-                    <img 
-                        width="50" height="50" 
-                        src="./images/github-icon.png" 
-                        alt="github--v1"
-                        class="brightness-200 hover:brightness-100 hover:scale-90"
-                    />
-                </a>
-            </footer>
-        </div> 
+      <!-- main content  -->
+      <div
+        class="w-full h-full flex flex-col items-center justify-center z-50 brightness-200 gap-2"
+      >
+        <img
+          src="./images/lock-icon-100.png"
+          alt="lock-logo"
+          width="100"
+          height="100"
+          class="brightness-200"
+        />
+        <h1
+          id="title"
+          class="text-5xl brightness-200 text-[color:var(--hacker-green)] font-mono"
+        >
+          TEXT CIPHER
+        </h1>
+
+        <div class="demo flex flex-col gap-2 items-center justify-center my-4 p-2">
+          <h1 class="text-2xl brightness-200 text-[color:var(--hacker-green)] font-mono">
+            Why Text Cipher?
+          </h1>
+          <div class="text-lg brightness-200 text-[color:var(--hacker-green)] font-mono max-w-xl text-center">
+            Input text and key on our site to get an encryption string. No data storage, only encryption 
+              algorithm processing. Access via provided key. 
+              <div class="my-5">
+                To Get Started, type text and any secret key 
+              </div>
+          </div>
+          <div
+            id="demo-btn"
+            class="font-mono brightness-200 hacker-green-bg rounded-md font-semibold w-full h-10 flex justify-center items-center cursor-pointer hover:opacity-80 hover:brightness-150"
+          >
+            GET STARTED
+          </div>
+        </div>
+
+        <form
+          class="flex flex-col items-center justify-center w-96 px-5 gap-4 my-4 hidden"
+        >
+          <!-- text input -->
+          <div class="w-full flex flex-col gap-1">
+            <label class="text-white font-mono text-sm"
+              >INPUT THE TEXT FOR ENCRYPTION</label
+            >
+            <textarea
+              name="text"
+              placeholder="ENTER ANY TEXT"
+              class="font-mono rounded-md brightness-200 focus:brightness-100 bg-transparent ring-1 ring-[color:var(--hacker-green)] w-full h-20 p-1 focus:outline-none text-white focus:text-white"
+            ></textarea>
+          </div>
+          <!-- password input -->
+          <div class="w-full flex flex-col gap-1 relative">
+            <label class="text-white font-mono text-sm"
+              >PROVIDE THE SECRET KEY (NOTE: ENCRYPTED TEXT REMAINS UNREADABLE
+              WITHOUT THIS KEY)</label
+            >
+            <div class="relative flex items-top">
+              <div
+                class="absolute top-0 right-0 h-full flex items-center pr-2"
+                onclick="toggleShowPassword()"
+              >
+                <img
+                  src="./images/lock-icon.png"
+                  alt="Icon"
+                  class="h-5 w-5 brightness-200 cursor-pointer z-10 hidden lock-icon"
+                />
+                <img
+                  src="./images/eye-icon.png"
+                  alt="Icon"
+                  class="h-5 w-5 brightness-200 cursor-pointer z-10 eye-icon"
+                />
+              </div>
+              <input
+                name="key"
+                placeholder="SECRET KEY"
+                type="password"
+                id="password_input"
+                class="font-mono brightness-200 focus:brightness-100 rounded-md bg-transparent w-full h-10 p-1 pr-8 ring-1 ring-[color:var(--hacker-green)] focus:outline-none text-white focus:text-white"
+              />
+            </div>
+          </div>
+          <div
+            type="submit"
+            class="font-mono brightness-200 hacker-green-bg rounded-md font-semibold w-full h-10 flex justify-center items-center cursor-pointer hover:opacity-80 hover:brightness-150"
+          >
+            ENCRYPT
+          </div>
+        </form>
+
+        <footer
+          class="fixed bottom-0 left-0 right-0 bg-transparent p-2 flex w-100"
+        >
+          <a class="ml-auto cursor-pointer" aria-readonly="github-icon">
+            <img
+              width="50"
+              height="50"
+              src="./images/github-icon.png"
+              alt="github--v1"
+              class="brightness-200 hover:brightness-100 hover:scale-90"
+            />
+          </a>
+        </footer>
+      </div>
     </div>
     <script>
-        const $ = document.querySelector.bind(document)
-        const [passwordInput,lockIcon, eyeIcon] = [$("#password_input"),$(".lock-icon"), $(".eye-icon")]
-        
-        $("[type=submit]").onclick = ()=>{
-            $("form").submit()
-        }
-        
-        const effect = useHackerEffect($("#title"))
-        effect(30)
-        
-        var showPassword = false
-        function toggleShowPassword ()
-        {
-            showPassword = !showPassword
-            
-            lockIcon.classList.remove("hidden")
-            eyeIcon.classList.remove("hidden")
 
-            if(showPassword)
-            {
-                passwordInput.type = "text";
-                eyeIcon.classList.add("hidden")
-            }
-            else 
-            {
-                passwordInput.type = "password";
-                lockIcon.classList.add("hidden")
-            }
+      const $ = document.querySelector.bind(document);
+      
+      if(localStorage.getItem("demo") != undefined) {
+        $(".demo").classList.add("hidden")
+        $("form").classList.remove("hidden")
+      } else {
+        $("#demo-btn").onclick = (e)=>{
+          $(".demo").classList.add("hidden")
+          $("form").classList.remove("hidden")
+          localStorage.setItem("demo", "done")
         }
+      }
+
+      const [passwordInput, lockIcon, eyeIcon] = [
+        $("#password_input"),
+        $(".lock-icon"),
+        $(".eye-icon"),
+       ];
+
+      $("[type=submit]").onclick = () => {
+        $("form").submit();
+      };
+
+      const effect = useHackerEffect($("#title"));
+      effect(30);
+
+      var showPassword = false;
+      function toggleShowPassword() {
+        showPassword = !showPassword;
+
+        lockIcon.classList.remove("hidden");
+        eyeIcon.classList.remove("hidden");
+
+        if (showPassword) {
+          passwordInput.type = "text";
+          eyeIcon.classList.add("hidden");
+        } else {
+          passwordInput.type = "password";
+          lockIcon.classList.add("hidden");
+        }
+      }
     </script>
-</body>
+  </body>
 </html>

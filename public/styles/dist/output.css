@@ -575,6 +575,11 @@ video {
   margin-bottom: 1rem;
 }
 
+.my-5 {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
 .ml-auto {
   margin-left: auto;
 }
@@ -603,6 +608,10 @@ video {
   height: 100%;
 }
 
+.max-h-6 {
+  max-height: 1.5rem;
+}
+
 .w-5 {
   width: 1.25rem;
 }
@@ -613,6 +622,10 @@ video {
 
 .w-full {
   width: 100%;
+}
+
+.max-w-xl {
+  max-width: 36rem;
 }
 
 .max-w-xs {
@@ -704,13 +717,27 @@ video {
   padding-right: 2rem;
 }
 
+.text-center {
+  text-align: center;
+}
+
 .font-mono {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 
 .text-5xl {
   font-size: 3rem;
   line-height: 1;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 
 .text-sm {
@@ -757,7 +784,7 @@ video {
   --primary-rgb: var(--green-rgb);
   --blob-color-1: rgb(var(--blue-rgb));
   --blob-color-2: dodgerblue;
-  --hacker-green: #23A825;
+  --hacker-green: #23a825;
 }
 
 .hacker-green-bg {
@@ -823,7 +850,7 @@ video {
   background-repeat: no-repeat;
   background-position: center;
   filter: sepia(100%) hue-rotate(160deg);
-  opacity: 0.2;
+  opacity: 0.16;
   background-size: 100%;
 }
 
@@ -918,6 +945,11 @@ video {
 
 .hover\:brightness-100:hover {
   --tw-brightness: brightness(1);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.hover\:brightness-150:hover {
+  --tw-brightness: brightness(1.5);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
