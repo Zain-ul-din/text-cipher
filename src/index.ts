@@ -24,7 +24,6 @@ app.get("/", (req, res) => {
     }
     throw new Error("Invalid query");
   } catch (err) {
-    console.log(err)
     const fileContent = readFileSync("./public/home.html", "utf-8");
     res.send(fileContent);
   }
